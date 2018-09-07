@@ -27,7 +27,8 @@ export default class Todo extends Component {
      * realizar as buscas e ordenação dos itens. 
      * O parametro description é utilizado na busca e pode ser
      * omitido quando este método for utilziado apenas para 
-     * atualziar a lista.*/
+     * atualziar a lista.
+    */
     refresh(description = '') {
         const search = description ? `&description__regex=/${description}/` : ''  
         axios.get(`${URL}?sort=-createdAt${search}`)

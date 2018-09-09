@@ -2,8 +2,8 @@ import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers ({
     todo: () => ({
-        description: 'Ler livro',
-        list: [{
+        fieldContent: 'Ler livro',   /* conteudo do campo de cadastro/pesquisa de tarefas */
+        taskList: [{    /* tarefas cadastradas */
             _id: 1,
             description: 'Pagar fatura do cartão',
             done: true

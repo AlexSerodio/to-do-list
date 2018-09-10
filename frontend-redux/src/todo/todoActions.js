@@ -8,10 +8,11 @@ export const changeFieldContent = event => ({
 })
 
 export const search = () => {
-    const request = axios.get(`${URL}?sort=-createdAt`)
-    return {
-        type: 'TODO_SEARCHED',
-        payload: request
+    return (dispatch, getState) => {
+        const description = getState().todo.fieldContent
+        const search = description ? `&description__regex=/${description}/` : ''
+        const request = axios.get(`${URL}?sort=-createdAt${search}`)
+            .then(resp => dispatch({type: 'TODO_SEARCHED', payload: resp.data}))
     }
 }
 
@@ -22,10 +23,10 @@ export const add = (description) => {
     return dispatch => {
         axios.post(URL, { description })
             .then(resp => dispatch(clear()))
-            .then(resp => dispatch(search()))
     }
 }
 
+/* Usa o middleware thunk */
 export const markAsDone = (todo) => {
     return dispatch => {
         axios.put(`${URL}/${todo._id}`, { ...todo, done: true })
@@ -34,6 +35,7 @@ export const markAsDone = (todo) => {
     }
 }
 
+/* Usa o middleware thunk */
 export const markAsPending = (todo) => {
     return dispatch => {
         axios.put(`${URL}/${todo._id}`, { ...todo, done: false })
@@ -41,6 +43,7 @@ export const markAsPending = (todo) => {
     }
 }
 
+/* Usa o middleware thunk */
 export const remove = (todo) => {
     return dispatch => {
         axios.delete(`${URL}/${todo._id}`)
@@ -48,6 +51,7 @@ export const remove = (todo) => {
     }
 }
 
+/* Usa o middleware multi */
 export const clear = () => {
-    return { type: 'TODO_CLEAR' }
+    return [{ type: 'TODO_CLEAR' }, search()]
 } 

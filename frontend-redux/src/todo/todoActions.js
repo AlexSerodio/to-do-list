@@ -15,10 +15,39 @@ export const search = () => {
     }
 }
 
+/* Usa o middleware redux thunk para retornar uma função ao invés
+ * de uma action. Dessa forma é possível utilizar o comando .then()
+ * para controlar a ordem de execução dos processos. */
 export const add = (description) => {
     return dispatch => {
         axios.post(URL, { description })
-            .then(resp => dispatch({ type: 'TODO_ADDED', payload: resp.data}))
+            .then(resp => dispatch(clear()))
             .then(resp => dispatch(search()))
     }
 }
+
+export const markAsDone = (todo) => {
+    return dispatch => {
+        axios.put(`${URL}/${todo._id}`, { ...todo, done: true })
+            //.then(resp => dispatch({type: 'TODO_MARKED_AS_DONE', payload: resp.data}))
+            .then(resp => dispatch(search()))
+    }
+}
+
+export const markAsPending = (todo) => {
+    return dispatch => {
+        axios.put(`${URL}/${todo._id}`, { ...todo, done: false })
+            .then(resp => dispatch(search()))
+    }
+}
+
+export const remove = (todo) => {
+    return dispatch => {
+        axios.delete(`${URL}/${todo._id}`)
+            .then(resp => dispatch(search()))
+    }
+}
+
+export const clear = () => {
+    return { type: 'TODO_CLEAR' }
+} 

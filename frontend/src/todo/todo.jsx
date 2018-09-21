@@ -5,7 +5,7 @@ import PageHeader from '../template/pageHeader'
 import TodoForm from './todoForm'
 import TodoList from './todoList'
 
-// url definida no backend
+// url defined on the backend
 const URL = 'http://localhost:3003/api/todos'
 
 export default class Todo extends Component {
@@ -23,11 +23,11 @@ export default class Todo extends Component {
         this.refresh()
     }
     
-    /* Usa os filtros embutidos do node restful para
-     * realizar as buscas e ordenação dos itens. 
-     * O parametro description é utilizado na busca e pode ser
-     * omitido quando este método for utilziado apenas para 
-     * atualziar a lista.
+   /**
+    * Uses the built-in filters of the restful node to perform 
+    * the searches and ordering of the items. The description 
+    * parameter is used in the search and can be omitted when 
+    * this method is used only to refresh the list.
     */
     refresh(description = '') {
         const search = description ? `&description__regex=/${description}/` : ''  
@@ -43,10 +43,6 @@ export default class Todo extends Component {
         this.setState({ description: e.target.value })
     }
 
-    /* Adiciona uma nova tarefa no banco.
-     * Para funcionar corretamente tanto o mongod
-     * quanto o backend da aplicação precisam estar rodando. 
-    */
     handleAdd() {
         const description = this.state.description
         axios.post(URL, {description})
@@ -75,7 +71,7 @@ export default class Todo extends Component {
     render() {
         return (
             <div>
-                <PageHeader name='Tarefas' small='Cadastro'></PageHeader>
+                <PageHeader name='Tasks' small='Create'></PageHeader>
 
                 <TodoForm description={this.state.description} 
                     handleChange={this.handleChange}

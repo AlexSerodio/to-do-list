@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
 export default class Grid extends Component {
-    /* Creates a bootstrap css class based on the elements (numbers)
-     * passed by parameters. 
+
+   /**
+    * Creates a css bootstrap class based on the elements (numbers) 
+    * passed by parameters.
     */
     toCssClasses(numbers) {
         const cols = numbers ? numbers.split(' ') : []
@@ -22,11 +24,7 @@ export default class Grid extends Component {
 
         return classes
     }
-
-    /* Returns a div component with a class created by
-     * the toCssClasses function based on the props attributes
-     * passed to this Grid component. 
-    */
+   
     render () {
         const gridClasses = this.toCssClasses(this.props.cols || 12)
         return (

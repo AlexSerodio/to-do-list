@@ -1,15 +1,15 @@
 const port = 3003
 
-// realiza o parser do corpo da requisicao recebida (formulario, json)
+// performs the parser of the request received (form, json)
 const bodyParser = require('body-parser')
-// servidor web que roda em cima do node
+// web server running on top of node
 const express = require('express')
-// cria instancia do express
+// creates instance of express
 const server = express()
 const allowCors = require('./cors')
 
-// sempre que uma requisao usando o padrao urlencoded e json,
-// o parser sera feito pelo bodyParser
+// whenever a request using the urlencoded and json standard the 
+// parser will be done by bodyParser
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
 server.use(allowCors)

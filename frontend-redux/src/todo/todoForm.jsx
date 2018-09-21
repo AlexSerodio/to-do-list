@@ -30,7 +30,7 @@ class TodoForm extends Component {
                 <Grid cols='12 10 9'>
                     <input ref={input => input && input.focus()} 
                         id='description' className='form-control' 
-                        placeholder='Adicione uma tarefa'
+                        placeholder='Add new task'
                         onChange={this.props.changeFieldContent}
                         onKeyUp={this.keyHandler}
                         value={this.props.description}></input>

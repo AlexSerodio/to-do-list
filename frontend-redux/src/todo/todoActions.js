@@ -16,9 +16,10 @@ export const search = () => {
     }
 }
 
-/* Usa o middleware redux thunk para retornar uma função ao invés
- * de uma action. Dessa forma é possível utilizar o comando .then()
- * para controlar a ordem de execução dos processos. */
+/**
+ * Uses redux thunk middleware to return a function instead of an action. This way 
+ * you can use the .then () function to control the order of execution of processes.
+ */
 export const add = (description) => {
     return dispatch => {
         axios.post(URL, { description })
@@ -26,7 +27,7 @@ export const add = (description) => {
     }
 }
 
-/* Usa o middleware thunk */
+/* Uses redux thunk middleware */
 export const markAsDone = (todo) => {
     return dispatch => {
         axios.put(`${URL}/${todo._id}`, { ...todo, done: true })
@@ -35,7 +36,7 @@ export const markAsDone = (todo) => {
     }
 }
 
-/* Usa o middleware thunk */
+/* Uses redux thunk middleware */
 export const markAsPending = (todo) => {
     return dispatch => {
         axios.put(`${URL}/${todo._id}`, { ...todo, done: false })
@@ -43,7 +44,7 @@ export const markAsPending = (todo) => {
     }
 }
 
-/* Usa o middleware thunk */
+/* Uses redux thunk middleware */
 export const remove = (todo) => {
     return dispatch => {
         axios.delete(`${URL}/${todo._id}`)
@@ -51,7 +52,7 @@ export const remove = (todo) => {
     }
 }
 
-/* Usa o middleware multi */
+/* Uses redux multi middleware */
 export const clear = () => {
     return [{ type: 'TODO_CLEAR' }, search()]
 } 

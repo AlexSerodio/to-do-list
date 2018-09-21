@@ -3,13 +3,28 @@ import PageHeader from '../template/pageHeader'
 
 export default props => (
     <div className='container'>
-        <PageHeader name='Sobre' small='Nós'></PageHeader>
+        <PageHeader name='About'></PageHeader>
 
-        <h4>Criado por:</h4>
-        <p>Alex Seródio Gonçalves</p>
-        <h4>Curso utilizado:</h4>
-        <p>React + Redux: Fundamentos e Duas Apps do ABSOLUTO ZERO!</p>
-        <h4>Disponível em:</h4>
-        <p><a>https://www.udemy.com/react-redux-pt/</a></p>
+        <p>
+            <h4>Acknowledgments</h4>
+            This project was developed for study purposes following a course from Udemy that can 
+            be found <a href="https://www.udemy.com/react-redux-pt/" target='_blank'>here</a> and has no intention 
+            of being used commercially.
+        </p><hr />
+
+        <p>
+            <h4>Shorcuts:</h4>
+            <ul>
+                <li>Add: enter</li>
+                <li>Search: shift + enter</li>
+                <li>Clear: escape</li>
+            </ul>
+        </p><hr />
+
+        <p>
+            <h4>Author information:</h4>
+            Name: Alex Seródio Gonçalves<br />
+            Github: <a href="https://github.com/AlexSerodio" target='_blank'>alexserodio</a><hr />
+        </p>
     </div>
 )

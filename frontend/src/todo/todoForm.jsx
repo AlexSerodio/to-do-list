@@ -16,7 +16,7 @@ export default props => {
             <Grid cols='12 10 9'>
                 <input ref={input => input && input.focus()} 
                     id='description' className='form-control' 
-                    placeholder='Adicione uma tarefa'
+                    placeholder='Add a new task'
                     onChange={props.handleChange}
                     onKeyUp={keyHandler}
                     value={props.description}></input>

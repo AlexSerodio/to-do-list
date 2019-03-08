@@ -1,16 +1,16 @@
 # to-do-list
 
-A to do list web application developed using React + Redux, on which you can create new tasks, mark them as complete, mark them as pending again and also delete them.
+A to do list web application developed using React + Redux, on which you can create new tasks, mark them as complete, pending and also delete them.
 
 ![todo-list](https://user-images.githubusercontent.com/23726229/45857808-eaca3380-bd30-11e8-80ef-6b923df72fd7.png)
 
 ## Getting Started
 
-First thing you need to know is that this project is divided in three folders: **backend**, **frontend** and **frontend-redux**. This means that there are two frontend versions of the same project. One was developed using only React while the other one uses React and Redux. The reason why these two versions exist is because I wanted to test and compare both versions to see the differences beetwen them (since the main goal here was just learn a little more about them). 
+First thing you need to know is that this project is divided in three folders: **backend**, **frontend** and **frontend-redux**. This means that there are two frontend versions of the same project, one developed using only React and other using React and Redux. The reason why these two versions exist is because I wanted to test and compare both versions to see the differences beetwen them (since the main goal here was just learn a little more about them). 
 
 ### Prerequisites
 
-To run the project you will need to install only two things first: [Node.js](https://nodejs.org/en/) and [MongoDB](https://www.mongodb.com/).
+To run the project you will need to install only two things: [Node.js](https://nodejs.org/en/) and [MongoDB](https://www.mongodb.com/).
 
 #### Installation on Windows machines
 
@@ -76,14 +76,11 @@ To run the project, first you need to start the MongoDB. To do this just open a 
 mongod
 ```
 
-WWith the MongoDB running, you can start the project backend and frontend. To do this, first go to the backend and frontend folders and download the dependencies using the node.js, as shown below
+With MongoDB running, you can start the backend and frontend. To do this, first go to the backend and frontend folders and download the dependencies, as shown below
 ```
 npm i
 ```
-
-(Remember that the project has two frontend versions but you can use only one of them)
-
-Now, just start both using the command
+Now, just start both backend and frontend using the command below in each of their folders
 
 ```
 npm run dev
